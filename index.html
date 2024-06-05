@@ -173,8 +173,16 @@
 	</a-scene>
 
 	<script>
+		let played = false;
+
 		window.addEventListener('click', function () {
-			document.getElementById('video').play();
+			if (played) {
+				document.querySelector('video').pause();
+				played = false;
+			}
+
+			document.querySelector('video').play();
+			played = true;
 		});
 	</script>
 </body>
