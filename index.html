@@ -12,6 +12,15 @@
 	<script src="threex/threex-armarkercontrols.js"></script>
 </head>
 
+<script type="importmap">
+	{
+		"imports": {
+			"three": "../build/three.module.js",
+			"three/addons/": "./jsm/"
+		}
+	}
+</script>
+
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
 	<video id="video" autoplay loop crossOrigin="anonymous" playsinline webkit-playsinline style="display:none">
@@ -19,8 +28,8 @@
 		<source src="video/sintel.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 	</video>
 
-	<script>
-
+	<script type="module">
+		import * as THREE from 'three';
 		var scene, camera, renderer, clock, deltaTime, totalTime;
 
 		var arToolkitSource, arToolkitContext;
@@ -110,7 +119,7 @@
 				type: 'pattern', patternUrl: "data/hiro.patt",
 			})
 
-			let geometry1 = new THREE.PlaneBufferGeometry(2, 2, 4, 4);
+			let geometry1 = new THREE.PlaneGeometry(2, 2, 4, 4);
 
 			let video = document.getElementById('video');
 			video.play();
