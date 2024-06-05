@@ -35,8 +35,9 @@
 		function initialize() {
 			scene = new THREE.Scene();
 
-			let ambientLight = new THREE.AmbientLight(0xcccccc, 0.5);
-			scene.add(ambientLight);
+			const light = new THREE.DirectionalLight(0xffffff, 3);
+			light.position.set(0.5, 1, 1).normalize();
+			scene.add(light);
 
 			camera = new THREE.Camera();
 			scene.add(camera);
@@ -55,6 +56,8 @@
 			clock = new THREE.Clock();
 			deltaTime = 0;
 			totalTime = 0;
+
+
 
 			////////////////////////////////////////////////////////////
 			// setup arToolkitSource
@@ -112,11 +115,12 @@
 			let video = document.getElementById('video');
 			video.play();
 			let texture = new THREE.VideoTexture(video);
+
 			texture.minFilter = THREE.LinearFilter;
 			texture.magFilter = THREE.LinearFilter;
 			texture.format = THREE.RGBFormat;
 			texture.needsUpdate = true;
-			let material1 = new THREE.MeshBasicMaterial({ map: texture });
+			let material1 = new THREE.MeshBasicMaterial({ color: 0xffffff, map: texture });
 
 			mesh1 = new THREE.Mesh(geometry1, material1);
 			mesh1.rotation.x = -Math.PI / 2;
