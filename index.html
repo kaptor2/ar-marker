@@ -14,9 +14,11 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
-	<video id="video" autoplay="true" crossOrigin="anonymous" webkit-playsinline style="display:none">
-		<source src="video/sintel.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+	<video id="video" loop crossOrigin="anonymous" playsinline style="display:none">
+		<source src="textures/sintel.ogv" type='video/ogg; codecs="theora, vorbis"'>
+		<source src="textures/sintel.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 	</video>
+
 
 	<script>
 
@@ -114,7 +116,6 @@
 			texture.minFilter = THREE.LinearFilter;
 			texture.magFilter = THREE.LinearFilter;
 			texture.format = THREE.RGBFormat;
-			texture.needsUpdate = true;
 			let material1 = new THREE.MeshBasicMaterial({ map: texture });
 
 			mesh1 = new THREE.Mesh(geometry1, material1);
