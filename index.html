@@ -5,25 +5,20 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-</head>
+	<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+	<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
+	<script defer src="index.js"></script>
 
-<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
-<script defer src="index.js"></script>
+</head>
 
 <body style='overflow: hidden; margin: 0;'>
 	<a-scene embedded arjs='debugUIEnabled: false;'>
 		<a-assets>
-			<video id="video" autoplay style="display: none;" loop="true" muted="true" src="video/sintel.mp4"
-				style="visibility: hidden; display: none;"></video>
+			<video id="video" autoplay loop muted src="video/sintel.mp4"></video>
 		</a-assets>
-		<a-entity camera></a-entity>
-		<a-marker preset='custom' type='pattern' url='assets/appello.patt'>
-			<a-video src="#video" position="0 0 0" rotation="270 0 0" play="true" scale="2 1 1"></a-video>
-		</a-marker>
-
+		<a-camera></a-camera>
+		<a-plane src="#video" rotation="270 0 0" scale="2 1 1" position="0 0 -1" look-at="[camera]"></a-plane>
 	</a-scene>
-
 </body>
 
 </html>
