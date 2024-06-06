@@ -11,8 +11,6 @@
 
 </head>
 
-
-
 <body style='overflow: hidden; margin: 0;'>
 	<a-scene embedded arjs='debugUIEnabled: false;'>
 		<a-assets>
@@ -20,9 +18,7 @@
 		</a-assets>
 		<a-entity id="camera" camera></a-entity>
 		<a-marker preset='custom' type='pattern' url='assets/appello.patt'>
-			<a-entity>
-				<a-plane src="#video" rotation="270 0 0" scale="2 1 1" position="0 0 0" look-at="#camera"></a-plane>
-			</a-entity>
+			<a-plane src="#video" rotation="270 0 0" scale="2 1 1" position="0 0 0" look-at="#camera"></a-plane>
 		</a-marker>
 	</a-scene>
 </body>
