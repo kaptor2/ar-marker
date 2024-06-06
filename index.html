@@ -15,10 +15,10 @@
 	<a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
 		<a-assets>
 			<video id="video" autoplay style="display: none;" loop="true" muted="true" src="video/sintel.mp4"
-				style="visibility: hidden;"></video>
+				style="visibility: hidden; display: none;"></video>
 		</a-assets>
 		<a-marker-camera preset='custom' type='pattern' url='assets/appello2.patt'>
-			<a-video src="#video" position="0 0.2 0" rotation="270 0 0" play="true"></a-video>
+			<a-video src="#video" position="0 0.1 0" width="15" height="15" rotation="270 0 0" play="true"></a-video>
 		</a-marker-camera>
 		<a-entity camera></a-entity>
 	</a-scene>
