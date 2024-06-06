@@ -1,3 +1,3 @@
 setTimeout(() => {
     document.querySelector('#video').play();
-}, 100)
+}, 1000)
