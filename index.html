@@ -11,7 +11,7 @@
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/latest/aframe/build/aframe-ar.js"></script>
 <script defer src="index.js"></script>
 
-<body style='overflow: hidden; margin: 0; width: 100%; height: 100%'>
+<!-- <body style='overflow: hidden; margin: 0; width: 100%; height: 100%'>
 	<a-scene embedded arjs='debugUIEnabled: false;'>
 		<a-assets>
 			<video id="video" autoplay loop="true" muted="true" play src="video/sintel.mp4"
@@ -23,6 +23,15 @@
 		<a-entity style="width: 100%; height: 100%" camera></a-entity>
 	</a-scene>
 
+</body> -->
+
+<body>
+	<a-scene embedded arjs="source: webcam; debugUIEnabled: false;">
+		<a-camera position="0 0 0" rotation="0 0 0"></a-camera>
+		<a-entity position="0 0 -1" rotation="0 0 0" scale="2 1 1">
+			<a-video src="video/sintel.mp4" autoplay="true" loop="true" id="video"></a-video>
+		</a-entity>
+	</a-scene>
 </body>
 
 </html>
