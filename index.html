@@ -12,12 +12,12 @@
 <script defer src="index.js"></script>
 
 <body style='overflow: hidden; margin: 0;'>
-	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+	<a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
 		<a-assets>
 			<video id="video" autoplay loop="true" muted="true" src="video/sintel.mp4"
 				style="visibility: hidden;"></video>
 		</a-assets>
-		<a-marker-camera preset='hiro' type='pattern' threshold='0.5' url='assets/hiro.patt'>
+		<a-marker-camera preset='hiro' type='pattern' threshold='0.5' url='assets/pattern-appello-marker.patt'>
 			<a-video src="#video" position="0 0.5 0" rotation="270 0 0" play="true"></a-video>
 		</a-marker-camera>
 		<a-entity camera></a-entity>
