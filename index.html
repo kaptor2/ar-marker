@@ -16,8 +16,10 @@
 		<a-assets>
 			<video id="video" autoplay loop="true" muted="true" src="video/sintel.mp4"></video>
 		</a-assets>
-		<a-marker preset='custom' type='pattern' url='assets/appello.patt' id="marker">
-			<a-plane src="#video" position="0 0 0" rotation="270 0 0" scale="2 1 1" look-at="#marker"></a-plane>
+		<a-marker preset='custom' type='pattern' url='assets/appello.patt'>
+			<a-entity>
+				<a-plane src="#video" position="0 0.5 0" rotation="270 0 0" scale="2 1 1"></a-plane>
+			</a-entity>
 		</a-marker>
 		<a-entity camera></a-entity>
 	</a-scene>
