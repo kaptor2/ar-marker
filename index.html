@@ -17,10 +17,11 @@
 			<video id="video" autoplay style="display: none;" loop="true" muted="true" src="video/sintel.mp4"
 				style="visibility: hidden; display: none;"></video>
 		</a-assets>
-		<a-marker preset='custom' type='pattern' url='assets/appello.patt'>
-			<a-video src="#video" position="0 0 0" rotation="270 0 0" play="true"></a-video>
-		</a-marker>
 		<a-entity camera></a-entity>
+		<a-marker preset='custom' type='pattern' url='assets/appello.patt'>
+			<a-video src="#video" position="0 0 0" rotation="270 0 0" play="true" scale="2 1 1"></a-video>
+		</a-marker>
+
 	</a-scene>
 
 </body>
