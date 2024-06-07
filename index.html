@@ -16,7 +16,8 @@
 
 	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
 		<a-marker type='pattern' url='assets/appello.patt' smooth>
-			<a-video src="#video" position="0 0.5 0" rotation="270 0 0" play="true" src="video/sintel.mp4"></a-video>
+			<a-video src="#video" position="0 0 0" rotation="270 0 0" scale="2 1 1" play="true"
+				src="video/sintel.mp4"></a-video>
 		</a-marker>
 		<a-entity camera></a-entity>
 	</a-scene>
