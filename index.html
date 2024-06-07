@@ -16,7 +16,7 @@
 <body style='overflow: hidden; margin: 0;'>
 	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
 		<a-assets>
-			<video id="video" autoplay loop="true" src="video/sintel.mp4" play="true" style="display: none;"></video>
+			<video id="video" autoplay playsinline loop src="video/sintel.mp4" play></video>
 		</a-assets>
 		<a-marker type='pattern' url='assets/appello.patt' smooth>
 			<a-video src="#video" position="0 0.1 0" rotation="270 0 0" scale="2 1 1" play="true"></a-video>
