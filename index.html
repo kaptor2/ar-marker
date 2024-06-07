@@ -4,17 +4,19 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
 	<title>Document</title>
 </head>
 
 <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
+
 <script defer src="index.js"></script>
 
 <body style='overflow: hidden; margin: 0;'>
 	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
 		<a-marker type='pattern' url='assets/appello.patt' smooth>
-			<a-video src="#video" position="0 0.1 0" rotation="270 0 0" scale="2 1 1" play="true"
+			<a-video position="0 0.1 0" mute="false" rotation="270 0 0" scale="2 1 1" play="true"
 				src="video/sintel.mp4"></a-video>
 		</a-marker>
 		<a-entity camera></a-entity>
