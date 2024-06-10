@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <a-scene cursor="rayOrigin: mouse;" raycaster="objects: .tile, .start-button, .close-button" ui-controller>
+  <a-scene cursor="rayOrigin: mouse;" raycaster="objects: .tile, .close-button" ui-controller>
     <a-assets>
       <a-mixin id="tile" tile="width: 0.400; height: 0.285"
         animation__scale="property: scale; to: 1.02 1.02 1.02; dur: 100; startEvents: mouseenter"
@@ -55,10 +55,7 @@
 
 
       <a-entity mixin="focus-animation" spatial-window="width: 1.775; height: 1">
-        <a-entity spatial-hero-image="src: #hero-image; width: 1.775; height: 1">
-          <a-text font="kelsonsans" value="Hayao Miyazaki" align="center" width="3" position="0 0.29 0.001"></a-text>
-          <a-entity spatial-button position="0 0.06 0.001" class="start-button"></a-entity>
-        </a-entity>
+
 
         <a-entity id="image-grid" visible="false">
           <!-- row -->

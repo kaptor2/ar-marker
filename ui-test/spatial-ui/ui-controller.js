@@ -2,7 +2,7 @@
 
 AFRAME.registerComponent('ui-controller', {
   schema: {
-    modalElement: {type: 'selector', default: '[spatial-modal]'}
+    modalElement: { type: 'selector', default: '[spatial-modal]' }
   },
 
   init: function () {
@@ -19,7 +19,7 @@ AFRAME.registerComponent('ui-controller', {
       tileEls[i].addEventListener('click', this.onTileClicked);
     }
 
-    document.querySelector('[spatial-button]').addEventListener('click', this.onStartButtonClicked);
+    this.onStartButtonClicked();
     document.querySelector('[spatial-close-button]').addEventListener('click', this.onCloseButtonClicked);
   },
 
@@ -88,7 +88,7 @@ AFRAME.registerComponent('ui-controller', {
     cameraCursorEl.setAttribute('raycaster', 'objects', '.tile');
     cameraCursorEl.components.raycaster.refreshObjects();
 
-    el.querySelector('[spatial-hero-image]').setAttribute('visible', false);
+
     el.querySelector('#image-grid').setAttribute('visible', true);
   }
 });
