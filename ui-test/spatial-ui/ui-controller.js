@@ -6,6 +6,7 @@ AFRAME.registerComponent('ui-controller', {
   },
 
   init: function () {
+    AFRAME.modalVisible = false
     this.onStartButtonClicked = this.onStartButtonClicked.bind(this);
     this.onCloseButtonClicked = this.onCloseButtonClicked.bind(this);
     this.onTileClicked = this.onTileClicked.bind(this);
@@ -24,6 +25,7 @@ AFRAME.registerComponent('ui-controller', {
   },
 
   onTileClicked: function (evt) {
+
     var self = this;
     var el = this.el;
     var objects = el.sceneEl.getAttribute('raycaster').objects;
@@ -43,6 +45,7 @@ AFRAME.registerComponent('ui-controller', {
 
     setTimeout(function () {
       self.data.modalElement.setAttribute('visible', true);
+      AFRAME.modalVisible = true
     }, 100);
   },
 
@@ -60,6 +63,7 @@ AFRAME.registerComponent('ui-controller', {
   },
 
   onCloseButtonClicked: function () {
+    AFRAME.modalVisible = false
     var el = this.el;
     var objects = el.sceneEl.getAttribute('raycaster').objects;
     var cameraCursorEl = el.sceneEl.querySelector('.camera-cursor');
@@ -76,6 +80,7 @@ AFRAME.registerComponent('ui-controller', {
 
     el.sceneEl.querySelector('[spatial-window]').setAttribute('spatial-window', 'focused', true);
     this.el.sceneEl.querySelector('[spatial-modal]').setAttribute('visible', false);
+    // document.removeEventListener('click', this.onCloseButtonClicked);
   },
 
   onStartButtonClicked: function () {
