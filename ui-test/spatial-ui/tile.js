@@ -9,16 +9,16 @@ if (typeof AFRAME === 'undefined') {
  */
 AFRAME.registerComponent('tile', {
   schema: {
-    color: {type: 'color', default: '#e0e0e0'},
-    width: {default: 1, min: 0},
-    height: {default: 1, min: 0},
-    src: {type: 'map', default: 'https://cdn.aframe.io/examples/ui/kazetachinu.jpg'}
+    color: { type: 'color', default: '#e0e0e0' },
+    width: { default: 1, min: 0 },
+    height: { default: 1, min: 0 },
+    src: { type: 'map', default: '../../assets/bg.svg' }
   },
 
   init: function () {
     var data = this.data;
     var geometry = this.geometry = this.generatePlaneGeometryIndexed(data.width, data.height, 0.03, 12);
-    var material = this.material = new THREE.MeshBasicMaterial({color: this.data.color});
+    var material = this.material = new THREE.MeshBasicMaterial({ color: this.data.color });
     var self = this;
     this.el.classList.add('tile');
 

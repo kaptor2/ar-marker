@@ -9,11 +9,11 @@ if (typeof AFRAME === 'undefined') {
  */
 AFRAME.registerComponent('spatial-button', {
   schema: {
-    color: {type: 'color', default: '#60ff7e'},
-    width: {default: 0.35, min: 0},
-    height: {default: 0.08, min: 0},
-    focused: {default: true},
-    text: {default: 'start'}
+    color: { type: 'color', default: '#0F2431' },
+    width: { default: 0.35, min: 0 },
+    height: { default: 0.08, min: 0 },
+    focused: { default: true },
+    text: { default: 'start' }
   },
 
   init: function () {
