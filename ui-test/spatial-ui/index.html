@@ -31,13 +31,14 @@
         animation__scale_reverse="property: object3D.position.z; to: 0; dur: 100; startEvents: focused">
       </a-mixin>
       <!-- <img id="leaving-room" src="https://cdn.aframe.io/examples/spatial-input/leaving-room.jpg" -->
-      <img id="leaving-room" src="/assets/15.jpg" crossorigin="anonymous">
+      <img id="leaving-room" src="https://cdn.aframe.io/examples/spatial-input/leaving-room.jpg"
+        crossorigin="anonymous">
       <img id="hero-image" src="/assets/bg.svg" crossorigin="anonymous">
       <video id="video" autoplay loop="true" playsinline play src="../../video/Appello.mp4"
         style="display: none"></video>
     </a-assets>
 
-    <a-sky src="#leaving-room" rotation="0 200 0"></a-sky>
+    <a-sky src="#leaving-room" rotation="0 -90 0"></a-sky>
 
     <a-entity position="-1 1.7 -1.2" rotation="0 45 0">
       <a-entity spatial-modal="width: 1.2; height: 0.72" visible="false">
@@ -90,7 +91,7 @@
 
           <!-- row -->
           <a-entity mixin="tile" title="Boon (web, mobile)"
-            synopsis="\n\n\n\n\n Boon is revolutionising the fundraising landscape for schools, clubs, and communities across the UK. With a focus on simplicity and community support, Boon offers an innovative platform that facilitates stress-free fundraising initiatives. Through buying, selling, and donating, Boon enables individuals to contribute to their local communities while engaging with peers. Founded on the principles of community empowerment and financial support, Boon strives to ensure that every local group receives the backing it needs to flourish."
+            synopsis="\n\n\n\n\n\n Boon is revolutionising the fundraising landscape for schools, clubs, and communities across the UK. With a focus on simplicity and community support, Boon offers an innovative platform that facilitates stress-free fundraising initiatives. Through buying, selling, and donating, Boon enables individuals to contribute to their local communities while engaging with peers. Founded on the principles of community empowerment and financial support, Boon strives to ensure that every local group receives the backing it needs to flourish."
             tile="src: ../../assets/projects/boon.png" position="-0.6435 -0.320 0.01"></a-entity>
           <a-entity mixin="tile" title="EdBreak (tablet, mobile)"
             synopsis="\n\n\n\n\n\n\n EdBreak, a pioneering digital platform in the education sector, is dedicated to addressing the challenges parents face in managing their children's screen time effectively. By combining parental control functionalities with an education-first approach, EdBreak aims to provide a comprehensive solution that promotes learning while ensuring responsible device usage. With a vision to empower children through innovative digital tools, EdBreak stands at the forefront of promoting digital well-being and academic development."
