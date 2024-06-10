@@ -1,10 +1,10 @@
 /* global AFRAME */
 AFRAME.registerComponent('info-message', {
   schema: {
-    htmlSrc: {type: 'selector'},
-    startOpened: {default: false},
-    width: {default: 400},
-    height: {default: 320}
+    htmlSrc: { type: 'selector' },
+    startOpened: { default: false },
+    width: { default: 400 },
+    height: { default: 320 }
   },
   init: function () {
     var sceneEl = this.el.sceneEl;
@@ -27,7 +27,7 @@ AFRAME.registerComponent('info-message', {
 
     this.messageEl.style.display = startOpened ? '' : 'none';
     this.infoButton.style.display = startOpened ? 'none' : '';
-    messageEl.addEventListener('click', function (evt) { evt.stopPropagation(); });
+    messageEl.addEventListener('touchstart', function (evt) { evt.stopPropagation(); });
   },
 
   update: function () {
@@ -100,7 +100,7 @@ AFRAME.registerComponent('info-message', {
     infoButton.setAttribute('title', 'Information about this experience');
     // Insert elements.
     wrapper.appendChild(infoButton);
-    infoButton.addEventListener('click', function (evt) {
+    infoButton.addEventListener('touchstart', function (evt) {
       onClick();
       evt.stopPropagation();
     });

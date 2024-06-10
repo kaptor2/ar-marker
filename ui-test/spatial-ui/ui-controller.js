@@ -17,11 +17,11 @@ AFRAME.registerComponent('ui-controller', {
 
     var tileEls = document.querySelectorAll('[tile]');
     for (var i = 0; i < tileEls.length; i++) {
-      tileEls[i].addEventListener('click', this.onTileClicked);
+      tileEls[i].addEventListener('touchstart', this.onTileClicked);
     }
 
-    document.querySelector('[spatial-button]').addEventListener('click', this.onStartButtonClicked);
-    document.querySelector('[spatial-close-button]').addEventListener('click', this.onCloseButtonClicked);
+    document.querySelector('[spatial-button]').addEventListener('touchstart', this.onStartButtonClicked);
+    document.querySelector('[spatial-close-button]').addEventListener('touchstart', this.onCloseButtonClicked);
   },
 
   onTileClicked: function (evt) {
@@ -80,7 +80,6 @@ AFRAME.registerComponent('ui-controller', {
 
     el.sceneEl.querySelector('[spatial-window]').setAttribute('spatial-window', 'focused', true);
     this.el.sceneEl.querySelector('[spatial-modal]').setAttribute('visible', false);
-    // document.removeEventListener('click', this.onCloseButtonClicked);
   },
 
   onStartButtonClicked: function () {

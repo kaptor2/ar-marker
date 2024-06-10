@@ -4,10 +4,10 @@ AFRAME.registerComponent('play-on-click', {
     this.onClick = this.onClick.bind(this);
   },
   play: function () {
-    window.addEventListener('click', this.onClick);
+    window.addEventListener('touchstart', this.onClick);
   },
   pause: function () {
-    window.removeEventListener('click', this.onClick);
+    window.removeEventListener('touchstart', this.onClick);
   },
   onClick: function (evt) {
     var videoEl = this.el.getAttribute('material').src;
