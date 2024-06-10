@@ -2,6 +2,7 @@
 
 
 document.querySelector('#lounch').addEventListener('touchstart', () => {
+    document.querySelector('look-controls').removeEventListener('touchmove');
     document.querySelector('#video').play();
     document.querySelector('[spatial-button]').dispatchEvent(new TouchEvent('touchstart', {
         bubbles: true,
