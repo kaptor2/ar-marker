@@ -27,7 +27,7 @@ AFRAME.registerComponent('info-message', {
 
     this.messageEl.style.display = startOpened ? '' : 'none';
     this.infoButton.style.display = startOpened ? 'none' : '';
-    messageEl.addEventListener('touchstart', function (evt) { evt.stopPropagation(); });
+    messageEl.addEventListener('click', function (evt) { evt.stopPropagation(); });
   },
 
   update: function () {
@@ -100,7 +100,7 @@ AFRAME.registerComponent('info-message', {
     infoButton.setAttribute('title', 'Information about this experience');
     // Insert elements.
     wrapper.appendChild(infoButton);
-    infoButton.addEventListener('touchstart', function (evt) {
+    infoButton.addEventListener('click', function (evt) {
       onClick();
       evt.stopPropagation();
     });
