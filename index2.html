@@ -38,7 +38,7 @@
 		const video = document.querySelector('#video');
 		const aVideo = document.querySelector('#aVideo');
 		const startButton = document.querySelector('#startButton');
-		const constraints = { video: true };
+		const constraints = { video: { facingMode: "environment" } };
 
 		startButton.addEventListener('click', function () {
 			navigator.mediaDevices.getUserMedia(constraints)
@@ -52,12 +52,6 @@
 					startButton.style.display = 'none';
 				});
 		}, false);
-
-		window.addEventListener('deviceorientation', function (event) {
-			let rotation = aVideo.getAttribute('rotation');
-			rotation.x = event.beta; // event.beta represents vertical movement
-			aVideo.setAttribute('rotation', rotation);
-		});
 	</script>
 </body>
 
