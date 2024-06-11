@@ -16,10 +16,11 @@
 <body style='overflow: hidden; margin: 0;'>
 	<a-scene embedded arjs='debugUIEnabled: false;'>
 
-		<a-video src="#video" position="0 1.7 -1" rotation="0 0 0" scale="0.5 0.25 0.25" play>
+		<a-entity position="0 1.7 -1" rotation="0 0 0" scale="0.5 0.25 0.25">
+			<a-video src="#video" play>
 
-		</a-video>
-
+			</a-video>
+		</a-entity>
 
 		<a-assets>
 			<video id="video" autoplay loop="true" muted="false" src="video/Appello.mp4" style="display: none"></video>
