@@ -19,7 +19,8 @@
 		background: no-repeat;
 		background-size: cover;"></video>
 	<a-scene>
-		<a-video id="appello" src="./video/Appello.mp4" position="0 0 -1.2" rotation="0 0 0" scale="0.5 0.25 0.25">
+		<a-video id="aVideo" src="./video/Appello.mp4" position="0 0 -1.2" muted rotation="0 0 0" scale="0.5 0.25 0.25"
+			play>
 		</a-video>
 		<a-entity camera look-controls></a-entity>
 	</a-scene>
@@ -31,11 +32,11 @@
 		transform: translateX(-50%) translateY(-50%);
 		padding: 20px;
 		font-size: 20px;
-		z-index: 100;">Start</button>
+		z-index: 100;">Начать</button>
 
 	<script>
 		const video = document.querySelector('#video');
-		const video2 = document.querySelector('#appello');
+		const aVideo = document.querySelector('#aVideo');
 		const startButton = document.querySelector('#startButton');
 		const constraints = { video: true };
 
@@ -43,10 +44,7 @@
 			navigator.mediaDevices.getUserMedia(constraints)
 				.then((stream) => {
 					video.srcObject = stream;
-
 					video.play();
-					video2.play();
-
 					const scene = document.querySelector('a-scene');
 					scene.addEventListener('loaded', () => {
 						scene.setAttribute('background', 'src: #video');
@@ -54,6 +52,12 @@
 					startButton.style.display = 'none';
 				});
 		}, false);
+
+		window.addEventListener('deviceorientation', function (event) {
+			let rotation = aVideo.getAttribute('rotation');
+			rotation.x = event.beta; // event.beta represents vertical movement
+			aVideo.setAttribute('rotation', rotation);
+		});
 	</script>
 </body>
 
