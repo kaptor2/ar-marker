@@ -19,15 +19,8 @@
 		background: no-repeat;
 		background-size: cover;"></video>
 	<a-scene>
-
-		<a-video src="#video" position="-1 1.7 -1.2" scale="0.5 0.25 0.25" play>
-			<a-entity look-at="target: #marker"></a-entity>
+		<a-video src="./video/Appello.mp4" position="0 0 -1.2" muted rotation="0 0 0" scale="0.5 0.25 0.25" play>
 		</a-video>
-
-
-		<a-assets>
-			<video id="video" autoplay loop="true" muted="false" src="video/Appello.mp4" style="display: none"></video>
-		</a-assets>
 		<a-entity camera look-controls></a-entity>
 	</a-scene>
 
