@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Spatial UI</title>
+  <meta name="description" content="Spatial UI • A-Frame">
+  <script src="../dist/aframe-master.js"></script>
+
+  <script src="ui-controller.js"></script>
+  <script src="../js/spatial-ui/spatial-utils.js"></script>
+  <script src="../js/spatial-ui/spatial-window.js"></script>
+  <script src="../js/spatial-ui/spatial-modal.js"></script>
+  <script src="../js/spatial-ui/spatial-modal-image.js"></script>
+  <script src="../js/spatial-ui/spatial-button.js"></script>
+  <script src="../js/spatial-ui/spatial-close-button.js"></script>
+  <script src="../js/spatial-ui/spatial-hero-image.js"></script>
+  <script src="tile.js"></script>
+  <script defer src="../../index.js"></script>
+</head>
+
+<body>
+  <div id="louncher" style="
+      position: absolute; 
+      inset: 0; 
+      background-color:white; 
+      z-index: 999999; 
+      width: 100%; 
+      height: 100%; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      ">
+    <button id="lounch">Start</button>
+  </div>
+
+  <a-scene cursor="rayOrigin: mouse;" raycaster="objects: .tile, .start-button, .close-button" ui-controller>
+    <a-assets>
+      <a-mixin id="tile" tile="width: 0.400; height: 0.285"
+        animation__scale="property: scale; to: 1.02 1.02 1.02; dur: 100; startEvents: mouseenter"
+        animation__scale_reverse="property: scale; to: 1 1 1; dur: 100; startEvents: mouseleave">
+      </a-mixin>
+      <a-mixin id="focus-animation"
+        animation__scale="property: object3D.position.z; to: -0.05; dur: 100; startEvents: unfocused"
+        animation__scale_reverse="property: object3D.position.z; to: 0; dur: 100; startEvents: focused">
+      </a-mixin>
+      <!-- <img id="leaving-room" src="https://cdn.aframe.io/examples/spatial-input/leaving-room.jpg" -->
+      <img id="leaving-room" src="../../assets/15.jpg" crossorigin="anonymous">
+      <img id="hero-image" src="../../assets/bg.svg" crossorigin="anonymous">
+      <video id="video" loop="true" playsinline src="../../video/Appello.mp4" style="display: none"></video>
+    </a-assets>
+
+    <a-sky src="#leaving-room" rotation="0 -90 0"></a-sky>
+
+    <a-entity position="-1 1.7 -1.2" rotation="0 45 0">
+      <a-entity spatial-modal="width: 1.2; height: 0.72" visible="false">
+        <a-entity spatial-modal-image="width: 0.6; height: 0.72" position="-0.3 0 0.001"></a-entity>
+        <a-entity spatial-close-button="" position="0.55 0.31 0.001" class="close-button"></a-entity>
+        <a-text font="kelsonsans" class="movie-title" value="Our projects" align="left" width="0.75"
+          position="0.03 0.2 0.001"></a-text>
+        <a-text font="kelsonsans" height="1" class="movie-synopsis"
+          value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          align="left" width="0.5" position="0.03 0.08 0.001"></a-text>
+      </a-entity>
+
+
+      <a-entity mixin="focus-animation" spatial-window="width: 1.775; height: 1">
+        <a-entity spatial-hero-image="src: #hero-image; width: 1.775; height: 1">
+          <a-text color="black" font="kelsonsans" value="Our projects" align="center" width="3"
+            position="0 0.29 0.001"></a-text>
+          <a-entity spatial-button position="0 0.06 0.001" class="start-button"></a-entity>
+        </a-entity>
+
+        <a-entity id="image-grid" visible="false">
+          <!-- row -->
+          <a-entity mixin="tile" title="Valte (web)"
+            synopsis="\n\n\n Valte, a leading innovator in the real estate industry, offers a powerful portfolio and transaction management system. Their solution aggregates multiple data sources to provide real-time accuracy, empowering occupiers, landlords, and real estate advisors with dynamic self-service capabilities. With a commitment to transparency and efficiency, Valte revolutionises how property-related decisions are made."
+            tile="src: ../../assets/projects/vilte.png" style="background-color: white;"
+            position="-0.6435 0.318 0.01"></a-entity>
+          <a-entity mixin="tile" title="Hanson (mobile)"
+            synopsis="\n\n\n Hanson is a prominent premixed concrete, aggregates and precast company established in 1949. With a rich history and extensive industry experience, Hanson is a leader in the logistics and transport sector. As a subsidiary of the global Hanson conglomerate, the company has a strong reputation for innovation and excellence in fleet management."
+            tile="src: ../../assets/projects/hanson.png" position="-0.2150 0.320 0.01"></a-entity>
+          <a-entity mixin="tile" title="Addvix (mobile)"
+            synopsis="\n\n\n\n\n Advix is a forward-thinking financial technology company dedicated to revolutionising the way young professionals approach saving and investing. This initiative seeks to bridge the information gap in financial advice by providing accessible, educational content while offering a user-friendly mobile platform for investment opportunities. Advix aims to empower individuals to take control of their finances and build wealth through smart, low-cost investment strategies."
+            tile="src: ../../assets/projects/advix.png" position="0.2135 0.320 0.01"></a-entity>
+          <a-entity mixin="tile" title="Carbonix (web)"
+            synopsis="\n\n\n\n\n Carbonix is a prominent Australian company specializing in the manufacturing and provision of commercial Unmanned Aerial Vehicles (UAVs). Established in 2012 by Dario Valenza, a seasoned America’s Cup veteran, Carbonix has been at the forefront of developing long-range Vertical Take-off and Landing (VTOL) drones for aerial surveillance and precision data capture. Their UAVs are renowned for enabling mission success by delivering intelligent, reliable, and secure aerial data capture systems."
+            tile="src: ../../assets/projects/carbonix.png" position="0.6420 0.320 0.01"></a-entity>
+
+          <!-- row -->
+          <a-entity mixin="tile" title="DentiCare (web, mobile)"
+            synopsis="\n\n\n\n\n DentiCare is a leader in Healthcare industry, providing affordable payment plans for dental and treatments across Australia since 2003. With over two decades of experience, DentiCare has facilitated thousands of patients in achieving their oral health goals through budget-friendly payment options. Their dedicated team offers personalised support and managed services to practices, ensuring a seamless experience for both practitioners and patients."
+            tile="src: ../../assets/projects/DentiCare.png" position="-0.6435 0 0.01"></a-entity>
+          <a-entity mixin="tile" title="ShareEVC (mobile)"
+            synopsis='\n\n\n\n\n ShareEVC is revolutionising electric vehicle (EV) charging accessibility with its innovative mobile platform. Addressing the challenges of "range anxiety" and "queue anxiety," ShareEVC aims to significantly increase the availability and efficiency of EV chargers, thereby promoting widespread EV adoption. By facilitating a marketplace for EV chargers and providing neighbourhood sharing solutions, ShareEVC empowers communities to embrace sustainable transportation.'
+            tile="src: ../../assets/projects/ShareEVC.png" position="-0.2150 0 0.01"></a-entity>
+          <a-entity mixin="tile" title="Darren Walters (mobile)"
+            synopsis="Darren Walters is a prominent figure in the real estate and finance industry, aiming to create an innovative digital solution that simplifies the borrowing process by offering accessible financing options for homebuyers."
+            tile="src: ../../assets/projects/daren.png" position="0.2135 0 0.01"></a-entity>
+          <a-entity mixin="tile" title="PicUp (web, mobile)"
+            synopsis="\n\n\n\n\n PicUp, a leading transport and logistics service based in South-East Queensland, specialises in the swift and secure movement of bulky goods. With a focus on customer satisfaction and operational excellence, PicUp offers a range of services including furniture delivery, rubbish removal, and business deliveries. The company's commitment to reliability and innovation has made it a trusted partner for individuals and businesses alike."
+            tile="src: ../../assets/projects/pickup.png" position="0.6420 0 0.01"></a-entity>
+
+          <!-- row -->
+          <a-entity mixin="tile" title="Boon (web, mobile)"
+            synopsis="\n\n\n\n\n\n Boon is revolutionising the fundraising landscape for schools, clubs, and communities across the UK. With a focus on simplicity and community support, Boon offers an innovative platform that facilitates stress-free fundraising initiatives. Through buying, selling, and donating, Boon enables individuals to contribute to their local communities while engaging with peers. Founded on the principles of community empowerment and financial support, Boon strives to ensure that every local group receives the backing it needs to flourish."
+            tile="src: ../../assets/projects/boon.png" position="-0.6435 -0.320 0.01"></a-entity>
+          <a-entity mixin="tile" title="EdBreak (tablet, mobile)"
+            synopsis="\n\n\n\n\n\n\n EdBreak, a pioneering digital platform in the education sector, is dedicated to addressing the challenges parents face in managing their children's screen time effectively. By combining parental control functionalities with an education-first approach, EdBreak aims to provide a comprehensive solution that promotes learning while ensuring responsible device usage. With a vision to empower children through innovative digital tools, EdBreak stands at the forefront of promoting digital well-being and academic development."
+            tile="src: ../../assets/projects/EdBreak.png" position="-0.2150 -0.320 0.01"></a-entity>
+          <a-entity mixin="tile" title="Furbaby (mobile)"
+            synopsis="\n\n\n\n Furbaby is the visionary force behind FurBaby Social, an all-in-one social networking app and marketplace designed for pet enthusiasts. With a deep understanding of the cherished bond between pets and their owners, Furbaby aims to cultivate a vibrant community where animal lovers can connect, share memories, and discover pet-related services."
+            tile="src: ../../assets/projects/Furbaby.png" position="0.2135 -0.320 0.01"></a-entity>
+
+          <a-entity mixin="tile" title="S30 (web, mobile)"
+            synopsis="\n\n\n S30 is a fitness franchise offering a dynamic fusion of weight training and cardio, providing immersive fitness experiences in a vibrant studio atmosphere. With custom workouts designed by expert trainers, S30 ensures members achieve their fitness goals through tailored programmes and motivating environments."
+            tile="src: ../../assets/projects/S30.png" position="0.6420 -0.320 0.01"></a-entity>
+        </a-entity>
+      </a-entity>
+    </a-entity>
+
+    <a-entity position="1 1.7 -1.2" rotation="0 -45 0">
+      <a-video width=2 height="1" src="#video" rotation="0 0 0" play></a-video>
+    </a-entity>
+
+    <a-entity position="0 1.6 0" look-controls camera>
+      <a-entity class="camera-cursor" raycaster="objects: .tile, .start-button, .close-button" cursor
+        geometry="primitive: circle; radius: 0.005" material="color: #112431; shader: flat"
+        position="0 0 -0.75"></a-entity>
+    </a-entity>
+    <a-entity hand-tracking-controls="hand: left"></a-entity>
+    <a-entity hand-tracking-controls="hand: right"></a-entity>
+  </a-scene>
+</body>
+
+</html>
